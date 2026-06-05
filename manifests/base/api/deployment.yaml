@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dfd-api
-  namespace: dfd
   labels:
     app: dfd
     component: api
@@ -21,7 +20,7 @@ spec:
       serviceAccountName: dfd
       initContainers:
         - name: run-migrations
-          image: <YOUR_REGISTRY>/dfd:latest
+          image: dfd:latest
           command: ["python", "scripts/migrate.py"]
           env:
             - name: DATABASE_URL
@@ -31,7 +30,7 @@ spec:
                   key: url
       containers:
         - name: api
-          image: <YOUR_REGISTRY>/dfd:latest
+          image: dfd:latest
           ports:
             - containerPort: 8080
           env:

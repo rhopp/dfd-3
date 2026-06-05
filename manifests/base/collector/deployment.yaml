@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dfd-collector
-  namespace: dfd
   labels:
     app: dfd
     component: collector
@@ -24,7 +23,7 @@ spec:
       terminationGracePeriodSeconds: 300
       initContainers:
         - name: run-migrations
-          image: <YOUR_REGISTRY>/dfd:latest
+          image: dfd:latest
           command: ["python", "scripts/migrate.py"]
           env:
             - name: DATABASE_URL
@@ -34,7 +33,7 @@ spec:
                   key: url
       containers:
         - name: collector
-          image: <YOUR_REGISTRY>/dfd:latest
+          image: dfd:latest
           command: ["python", "-m", "dfd.collector.main"]
           env:
             - name: DATABASE_URL

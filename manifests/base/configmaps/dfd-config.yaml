@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dfd-config
+  labels:
+    app: dfd
+data:
+  CLAUDE_MODEL: "claude-sonnet-4-6"
+  ENABLED_PIPELINE_TYPES: "build,integration_test,enterprise_contract,release"
+  MAX_PARALLEL_SPECIALISTS: "5"
+  COLLECT_INTERVAL_HOURS: "24"
+  COLLECT_HOURS_BACK: "48"
+  THINKING_BUDGET_TOKENS: "10000"
