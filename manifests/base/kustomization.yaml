@@ -16,8 +16,3 @@ resources:
 
 commonLabels:
   app.kubernetes.io/part-of: dfd
-
-images:
-  - name: dfd
-    newName: quay.io/rhopp/dfd
-    newTag: latest
