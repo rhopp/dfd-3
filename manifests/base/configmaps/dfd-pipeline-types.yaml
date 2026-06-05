@@ -9,24 +9,24 @@ data:
     pipeline_types:
       - id: build
         display_name: Build
-        label_selector: "pipelines.appstudio.openshift.io/type=build"
+        label_selector: "pipelines.appstudio.openshift.io/type=build,appstudio.openshift.io/application=calunga-v2-index-main"
         namespace: calunga-tenant
         description: Fromager wheel builds from source
 
       - id: integration_test
         display_name: Integration Test
-        label_selector: "pipelines.appstudio.openshift.io/type=test,tekton.dev/pipeline=wheel-integration-test"
+        label_selector: "pipelines.appstudio.openshift.io/type=test,tekton.dev/pipeline=wheel-integration-test,appstudio.openshift.io/application=calunga-v2-index-main"
         namespace: calunga-tenant
         description: Wheel install + import on 6 OS targets
 
       - id: enterprise_contract
         display_name: Enterprise Contract
-        label_selector: "pipelines.appstudio.openshift.io/type=test,tekton.dev/pipeline=enterprise-contract"
+        label_selector: "pipelines.appstudio.openshift.io/type=test,tekton.dev/pipeline=enterprise-contract,appstudio.openshift.io/application=calunga-v2-index-main"
         namespace: calunga-tenant
         description: EC validation, signing, Pulp publishing
 
       - id: release
         display_name: Release
-        label_selector: "pipelines.appstudio.openshift.io/type=managed,release.appstudio.openshift.io/namespace=calunga-tenant"
+        label_selector: "pipelines.appstudio.openshift.io/type=managed,release.appstudio.openshift.io/namespace=calunga-tenant,appstudio.openshift.io/application=calunga-v2-index-main"
         namespace: rhtap-releng-tenant
         description: Wheel signing, Pulp publishing to packages.redhat.com
