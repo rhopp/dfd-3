@@ -11,8 +11,8 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/rhopp/dfd.git
-    targetRevision: main
+    repoURL: https://github.com/rhopp/dfd-3.git
+    targetRevision: gitops
     path: manifests/overlays/production
 
   destination:
