@@ -9,7 +9,7 @@ namespace: dfd
 images:
   - name: dfd
     newName: quay.io/rhopp/dfd3
-    newTag: latest
+    newTag: newdfd
 
 patches:
   - path: patches/configmap-values.yaml
