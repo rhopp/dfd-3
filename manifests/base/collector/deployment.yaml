@@ -31,6 +31,19 @@ spec:
                 secretKeyRef:
                   name: dfd-database
                   key: url
+        - name: load-pipeline-types
+          image: dfd:latest
+          command: ["python", "scripts/load_pipeline_types.py", "--config", "/etc/dfd/pipeline_types.yaml"]
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: dfd-database
+                  key: url
+          volumeMounts:
+            - name: pipeline-types
+              mountPath: /etc/dfd
+              readOnly: true
       containers:
         - name: collector
           image: dfd:latest
@@ -128,3 +141,6 @@ spec:
         - name: gcp-credentials
           secret:
             secretName: dfd-gcp-credentials
+        - name: pipeline-types
+          configMap:
+            name: dfd-pipeline-types

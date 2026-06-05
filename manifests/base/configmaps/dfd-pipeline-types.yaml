@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dfd-pipeline-types
+  labels:
+    app: dfd
+data:
+  pipeline_types.yaml: |
+    pipeline_types:
+      - id: build
+        display_name: Build
+        label_selector: "pipelines.appstudio.openshift.io/type=build"
+        namespace: calunga-tenant
+        description: Fromager wheel builds from source
+
+      - id: integration_test
+        display_name: Integration Test
+        label_selector: "pipelines.appstudio.openshift.io/type=test,tekton.dev/pipeline=wheel-integration-test"
+        namespace: calunga-tenant
+        description: Wheel install + import on 6 OS targets
+
+      - id: enterprise_contract
+        display_name: Enterprise Contract
+        label_selector: "pipelines.appstudio.openshift.io/type=test,tekton.dev/pipeline=enterprise-contract"
+        namespace: calunga-tenant
+        description: EC validation, signing, Pulp publishing
+
+      - id: release
+        display_name: Release
+        label_selector: "pipelines.appstudio.openshift.io/type=managed,release.appstudio.openshift.io/namespace=calunga-tenant"
+        namespace: rhtap-releng-tenant
+        description: Wheel signing, Pulp publishing to packages.redhat.com

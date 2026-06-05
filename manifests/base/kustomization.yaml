@@ -5,6 +5,7 @@ resources:
   - namespace/namespace.yaml
   - namespace/serviceaccount.yaml
   - configmaps/dfd-config.yaml
+  - configmaps/dfd-pipeline-types.yaml
   - postgresql/pvc.yaml
   - postgresql/service.yaml
   - postgresql/statefulset.yaml
