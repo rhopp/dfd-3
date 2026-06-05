@@ -8,7 +8,7 @@ namespace: dfd
 
 images:
   - name: dfd
-    newName: quay.io/rhopp/dfd
+    newName: quay.io/rhopp/dfd3
     newTag: latest
 
 patches:
